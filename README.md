@@ -11,9 +11,9 @@ Public IP-1: 223.10.10.50 255.255.255.0
 Public IP-2: 223.10.11.51 255.255.255.0
 ```
 
-#These IPs are from different block so need to need to check reachability of 2 IP using command
+#These IPs are from different block so need to ensure reachability of 2 IP using command
 ```
-$ ip neigh 
+$ ip neigh ;if both ip reachable then output will reveal readable understnading
 ```
 
 #Assigning static private IP address for both OpenVPN client that the connection can be made on fixed private IP every time
