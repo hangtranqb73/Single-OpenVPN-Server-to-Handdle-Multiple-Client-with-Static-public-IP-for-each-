@@ -54,7 +54,7 @@ cd /etc/iptables
 ls ;check and delete other files except rules.v4 and rules.v6
 sudo nano /etc/iptables/rules.v4  ;modify rules in here
 ```
-#Add the following Rules and don't MASQUEREDE any traffic to eth0
+#Add the following Rules and remove rules like "-A POSTROUTING -s 10.8.0.1/24 -o eth0 -J MASQUEREDE"
 ```
 *nat
 :PREROUTING ACCEPT [484:61665]
@@ -68,5 +68,4 @@ sudo nano /etc/iptables/rules.v4  ;modify rules in here
 COMMIT
 ```
 
-Remove other NAT rules if present, specially ending with -j MASQUEREDE 
 The following NAT rules will enable "Client2" to have access on IP 223.10.10.50 and "Client1" to have access on IP 223.10.10.50
