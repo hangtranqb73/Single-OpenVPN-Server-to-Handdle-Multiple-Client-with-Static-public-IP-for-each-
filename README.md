@@ -1,4 +1,4 @@
-# Single-OpenVPN-Server-to-Handdle-Multiple-Client-with-different-Static-public-IP-on-debian
+# Single-OpenVPN-Server-to-Handle-Multiple-Client-with-Multiple-Static-Public-IP-on-debian
 it is a post installation modification on OpenVPN server to handle multiple client with individual static IP
 
 First, install OpenVPN server and configure necessary certificate for server and client. A nice script to deploy a complete OpenVPN server with client profile, is available at https://github.com/Angristan/OpenVPN-install
