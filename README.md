@@ -3,9 +3,7 @@ it is a post installation modification on OpenVPN server to handle multiple clie
 
 First, install OpenVPN server and configure necessary certificate for server and client. A nice script to deploy a complete OpenVPN server with client profile, is available at https://github.com/Angristan/OpenVPN-install
 
-After Installation, Needs following steps to accomplish the gets this job done. 
-
-The Configuration worked on Debian 9 KVM server with 2 Public IP, Following 2 Dummy IP addresses assumed as public IP to describe configuration,
+Following 2 Dummy IP addresses assumed as public IP
 ```
 Public IP-1: 223.10.10.50 255.255.255.0
 Public IP-2: 223.10.11.51 255.255.255.0
@@ -16,7 +14,7 @@ Public IP-2: 223.10.11.51 255.255.255.0
 $ ip neigh ;if both ip reachable then output will reveal readable understnading
 ```
 
-#Assigning static private IP address for both OpenVPN client that the connection can be made on fixed private IP every time
+#Assign static private IP address for both OpenVPN client that the connection can be made on fixed private IP every time
 ```
 sudo mkdir /etc/openvpn/ccd   
 sudo chown -R nobody:nogroup /etc/openvpn/ccd
@@ -33,9 +31,8 @@ Client2,10.8.0.102  ;Pushed to Client2
 ```
 sudo nano /etc/openvpn/server.conf
 client-config-dir /etc/openvpn/ccd  ;add the line in config file
+push "redirect-gateway def1" ; bypass-dhcp has been remove form this line
 ```
-Replace the line -> push "redirect-gateway def1 bypass-dhcp" 
-With -> push "redirect-gateway def1"
 
 #Allow IP Forward
 ```
@@ -57,10 +54,10 @@ sudo nano /etc/iptables/rules.v4  ;modify rules in here
 #Add the following Rules and remove rules like "-A POSTROUTING -s 10.8.0.1/24 -o eth0 -J MASQUEREDE"
 ```
 *nat
-:PREROUTING ACCEPT [484:61665]
-:INPUT ACCEPT [193:31899]
-:OUTPUT ACCEPT [6:440]
-:POSTROUTING ACCEPT [6:440]
+:PREROUTING ACCEPT [0:0]
+:INPUT ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+:POSTROUTING ACCEPT [0:0]
 -A POSTROUTING -s 10.8.0.101 -o eth0 -j SNAT --to-source 223.10.11.51
 -A POSTROUTING -s 10.8.0.102 -o eth0 -j SNAT --to-source 223.10.10.50
 -A PREROUTING -i eth0 -d 223.10.10.50 -p udp -j DNAT --to 10.8.0.102:1194
