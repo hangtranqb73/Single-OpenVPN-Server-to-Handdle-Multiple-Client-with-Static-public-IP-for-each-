@@ -65,4 +65,4 @@ sudo nano /etc/iptables/rules.v4  ;modify rules in here
 COMMIT
 ```
 
-The following NAT rules will enable "Client2" to have access on IP 223.10.11.51 and "Client1" to have access on IP 223.10.10.50
+The following NAT rules will enable "Client1" to have access on IP 223.10.11.51 and "Client2" to have access on IP 223.10.10.50
