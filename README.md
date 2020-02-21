@@ -1,9 +1,9 @@
 # Multiple Static Public IP to Multiple Client Using Single OpenVpn Server on Ubuntu 18.04
 it is a post installation modification on OpenVPN server to handle multiple client with individual static IP
 
-First, install OpenVPN server and configure necessary certificate for server and client. A nice script to deploy a complete OpenVPN server with client profile, is available at https://github.com/Angristan/OpenVPN-install
+First, install OpenVPN server and configure necessary certificate for server and client. if your server having multiple IP address and u want to serve multiple client with seperate public ip then following config is useful.
 
-Following 2 Dummy IP addresses assumed as public IP
+Following 2 Dummy IP addresses assumed as public IP 
 ```
 Public IP-1: 223.10.10.50 255.255.255.0
 Public IP-2: 223.10.11.51 255.255.255.0
