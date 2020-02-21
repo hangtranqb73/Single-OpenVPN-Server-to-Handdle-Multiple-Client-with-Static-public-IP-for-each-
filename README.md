@@ -77,6 +77,7 @@ COMMIT
 Now Save the Iptables Rule and restart OpenVPN server and Networking.
 ```
 sudo iptables-save
+sudo service openvpn restart
 sudo systemctl restart networking.service
 ```
 
